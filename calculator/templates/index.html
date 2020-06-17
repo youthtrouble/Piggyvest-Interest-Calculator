@@ -26,21 +26,13 @@
                     <h1>INTEREST CALCULATOR</h1>
                     <p class="intro">Take a peek into your future interests</p>
                 </div>
-                <form action="" method="">
+                <form name="form-input" action="" method="">
                     <div class="label">
-                        <label for="amount">I want to Save</label>
-                        <input class="input" type="text" id="amount">
+                        <label for="principal">I want to Save</label>
+                        <input class="input" type="text" id="principal" required>
                     </div>
                     <div class="label">
                         <label for="duration">Duration</label>
-                        <select class="input" name="duration" id="duration">
-                            <option value="piggy-bank">Piggy Bank</option>
-                            <option value="target">Target</option>
-                            <option value="flex">Flex</option>
-                            <option value="safelock">Safelock</option>
-                        </select>
-                    </div>
-                    <div class="label">
                         <label for="plan">Savings Plan</label>
                         <select class="input" name="plan" id="plan">
                             <option value="7">7 days</option>
@@ -48,6 +40,14 @@
                             <option value="90">90 days</option>
                             <option value="180">180 days</option>
                             <option value="365">365 days</option>
+                        </select>
+                    </div>
+                    <div class="label">
+                        <select class="input" name="duration" id="duration">
+                            <option value="piggy-bank">Piggy Bank</option>
+                            <option value="target">Target</option>
+                            <option value="flex">Flex</option>
+                            <option value="safelock">Safelock</option>
                         </select>
                     </div>
                     <button class="btn block" type="submit">CALCULATE</button>
@@ -78,6 +78,8 @@
         </div>
 
     </div>
+
+    <script src="./js/form.js"></script>
 </body>
 
 </html>
