@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interest Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
-    hello
-    {{.interest}}
-    {{.total}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 logo">
+                <img class="mx-auto d-block" src="./assets/piggyvesgt-logo.png" alt="PiggyVest logo">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 offset-md-4 card">
+                <div>
+                    <h1>INTEREST CALCULATOR</h1>
+                    <p class="intro">Take a peek into your future interests</p>
+                </div>
+                <form action="../interest.go" method="post" name="form" enctype="multipart/form-data">
+                    <div class="label">
+                        <label for="principal">I want to Save</label>
+                        <input class="input" type="text" id="principal" required>
+                    </div>
+                    <div class="label">
+                        <label for="period">Duration</label>
+                        <select class="input" name="period" id="period">
+                            <option value="7">7 days</option>
+                            <option value="14">14 days</option>
+                            <option value="90">90 days</option>
+                            <option value="180">180 days</option>
+                            <option value="365">365 days</option>
+                        </select>
+                    </div>
+                    <div class="label">
+                        <label for="name">Savings Plan</label>
+                        <select class="input" name="name" id="name">
+                            <option value="piggy-bank">Piggy Bank</option>
+                            <option value="target">Target</option>
+                            <option value="flex">Flex</option>
+                            <option value="safelock">Safelock</option>
+                        </select>
+                    </div>
+                    <button class="btn block" type="submit">CALCULATE</button>
+                </form>
+                <div class="breakdown">
+                    <h2>INTERESTS</h2>
+                    <div>
+                        <p>
+                            Daily Interest
+                            <span class="figure"></span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Annual interest
+                            <span class="figure"></span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Total interest
+                            <span class="figure"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
+
 </html>

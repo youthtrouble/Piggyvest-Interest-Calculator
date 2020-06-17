@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 	"log"
-
 	"github.com/gorilla/mux"
 	//"github.com/youthtrouble/Interest-Calculator/calculator"
 )
@@ -17,7 +16,7 @@ var (
 	js = http.FileServer(http.Dir("./templates/js/"))
 	//Fimg servers image files on the server
 	//Fimg serves images to the server
-	fimg = http.FileServer(http.Dir("./templates/img/"))
+	fimg = http.FileServer(http.Dir("./templates/assets/"))
 
 	tpl   *template.Template
 	tmpl  = template.New("")
@@ -56,12 +55,15 @@ func savecalcGet(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-
 func main() {
 	// Register routers
 	router := mux.NewRouter()
 	router.HandleFunc("/", savecalc).Methods("GET", "POST")
 	//localhost can be omitted
+	router.PathPrefix("/js/").Handler(http.StripPrefix("/js/", js))
+	router.PathPrefix("/css/").Handler(http.StripPrefix("/css/", fs))
+	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", fimg))
+
 	fmt.Printf("Serving on port %s...\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }

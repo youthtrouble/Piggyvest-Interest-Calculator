@@ -2,7 +2,6 @@ package calculator
 
 import (
 	"fmt"
-	"net/http"
 	//"log"
 	"math"
 	//"net/http"
@@ -21,17 +20,17 @@ var tpl *template.Template
 
 const yr = 365
 
-func savecalcPost(w http.ResponseWriter, r *http.Request) {
-	// Parse and decode the request body into a new `Credentials` instance
+// func savecalcPost(w http.ResponseWriter, r *http.Request) {
+// 	// Parse and decode the request body into a new `Credentials` instance
 
-	name := r.FormValue("name")
-	principal := r.FormValue("email")
-	period := r.FormValue("password")
-	plan := Plan{name, principal, period}
-	// total, interest := Calculate(plan)
-	// tpl.Execute(w, "index.html", total, interest)
-	w.Header().Set("Content-Type", "text/html;charset=utf8")
-}
+// 	name := r.FormValue("name")
+// 	principal := r.FormValue("email")
+// 	period := r.FormValue("password")
+// 	plan := Plan{name, principal, period}
+// 	// total, interest := Calculate(plan)
+// 	// tpl.Execute(w, "index.html", total, interest)
+// 	w.Header().Set("Content-Type", "text/html;charset=utf8")
+// }
 
 // Calculate the interest based on the plan type
 func Calculate(plan Plan) (tot, intrst float32) {
