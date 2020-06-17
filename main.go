@@ -5,9 +5,9 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-
+	"log"
 	"github.com/gorilla/mux"
-	"github.com/youthtrouble/Interest-Calculator/calculator"
+	//"github.com/youthtrouble/Interest-Calculator/calculator"
 )
 
 var (
@@ -16,7 +16,7 @@ var (
 	js = http.FileServer(http.Dir("./templates/js/"))
 	//Fimg servers image files on the server
 	//Fimg serves images to the server
-	fimg = http.FileServer(http.Dir("./templates/img/"))
+	fimg = http.FileServer(http.Dir("./templates/assets/"))
 
 	tpl   *template.Template
 	tmpl  = template.New("")
@@ -32,15 +32,38 @@ func init() {
 		port = "9000"
 	}
 	// Parses gohtml files in templates directory
-	tmpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 	tpl = template.Must(template.ParseGlob("templates/*.html"))
+}
+
+//Savecalc func
+func savecalc(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		savecalcGet(w, r)
+	// case "POST":
+	// 	savecalcPost(w, r)
+
+	}
+}
+
+func savecalcGet(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf8")
+	err := tpl.ExecuteTemplate(w, "index.html", nil)
+	if err != nil {
+		log.Println("error loading template", err)
+		w.WriteHeader(http.StatusNotFound)
+	}
 }
 
 func main() {
 	// Register routers
 	router := mux.NewRouter()
-	router.HandleFunc("/", calculator.Savecalc).Methods("GET", "POST")
+	router.HandleFunc("/", savecalc).Methods("GET", "POST")
 	//localhost can be omitted
+	router.PathPrefix("/js/").Handler(http.StripPrefix("/js/", js))
+	router.PathPrefix("/css/").Handler(http.StripPrefix("/css/", fs))
+	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", fimg))
+
 	fmt.Printf("Serving on port %s...\n", port)
-	http.ListenAndServe(":"+port, router)
+	log.Fatal(http.ListenAndServe(":"+port, router))
 }
