@@ -2,11 +2,11 @@ package calculator
 
 import (
 	"fmt"
-	"log"
+	//"log"
 	"math"
-	"net/http"
-	"strconv"
+	//"net/http"
 	"html/template"
+	"strconv"
 )
 
 // Plan describes a savings plan
@@ -16,40 +16,21 @@ type Plan struct {
 	Period    string
 }
 
-var tpl   *template.Template
+var tpl *template.Template
+
 const yr = 365
 
-//Savecalc func
-func Savecalc(w http.ResponseWriter, r *http.Request) {
-	switch r.Method {
-	case "GET":
-		savecalcGet(w, r)
-	case "POST":
-		savecalcPost(w, r)
+// func savecalcPost(w http.ResponseWriter, r *http.Request) {
+// 	// Parse and decode the request body into a new `Credentials` instance
 
-	}
-}
-
-func savecalcGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf8")
-	err := tpl.ExecuteTemplate(w, "index.html", nil)
-	if err != nil {
-		log.Println("error loading template", err)
-		w.WriteHeader(http.StatusNotFound)
-	}
-}
-
-func savecalcPost(w http.ResponseWriter, r *http.Request) {
-	// Parse and decode the request body into a new `Credentials` instance
-
-	name := r.FormValue("name")
-	principal := r.FormValue("email")
-	period := r.FormValue("password")
-	plan := Plan{name, principal, period}
-	total, interest := Calculate(plan)
-	w.
-	w.Header().Set("Content-Type", "text/html;charset=utf8")
-}
+// 	name := r.FormValue("name")
+// 	principal := r.FormValue("email")
+// 	period := r.FormValue("password")
+// 	plan := Plan{name, principal, period}
+// 	total, interest := Calculate(plan)
+// 	w.
+// 	w.Header().Set("Content-Type", "text/html;charset=utf8")
+// }
 
 // Calculate the interest based on the plan type
 func Calculate(plan Plan) (tot, intrst float32) {
