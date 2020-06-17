@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"os"
-	"log"
+
 	"github.com/gorilla/mux"
-	//"github.com/youthtrouble/Interest-Calculator/calculator"
 )
 
 var (
@@ -18,8 +18,8 @@ var (
 	//Fimg serves images to the server
 	fimg = http.FileServer(http.Dir("./templates/assets/"))
 
-	tpl   *template.Template
-	tmpl  = template.New("")
+	tpl  *template.Template
+	tmpl = template.New("")
 	port string
 )
 
@@ -40,13 +40,22 @@ func savecalc(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
 		savecalcGet(w, r)
-	// case "POST":
-	// 	savecalcPost(w, r)
-
+		// case "POST":
+		// 	savecalcPost(w, r)
 	}
 }
 
 func savecalcGet(w http.ResponseWriter, r *http.Request) {
+	// parsedTemplate, _ := template.ParseFiles("templates/index.html")
+	// if r.Method == "GET" {
+	// 	parsedTemplate.Execute(w, nil)
+	// } else {
+	// 	plan := readForm(r)
+	// 	total, interest := calculator.Calculate(plan)
+	// 	fmt.Println(total, interest)
+	// 	parsedTemplate.Execute(w, total)
+
+	// }
 	w.Header().Set("Content-Type", "text/html; charset=utf8")
 	err := tpl.ExecuteTemplate(w, "index.html", nil)
 	if err != nil {
