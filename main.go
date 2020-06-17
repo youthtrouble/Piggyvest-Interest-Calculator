@@ -26,7 +26,7 @@ var (
 func init() {
 	// Get serve port from environment
 	// Allows for easy port change
-	port = os.Getenv("EMS_PORT")
+	port = os.Getenv("PORT")
 	//Default to 9000
 	if port == "" {
 		port = "9000"
@@ -46,16 +46,6 @@ func savecalc(w http.ResponseWriter, r *http.Request) {
 }
 
 func savecalcGet(w http.ResponseWriter, r *http.Request) {
-	// parsedTemplate, _ := template.ParseFiles("templates/index.html")
-	// if r.Method == "GET" {
-	// 	parsedTemplate.Execute(w, nil)
-	// } else {
-	// 	plan := readForm(r)
-	// 	total, interest := calculator.Calculate(plan)
-	// 	fmt.Println(total, interest)
-	// 	parsedTemplate.Execute(w, total)
-
-	// }
 	w.Header().Set("Content-Type", "text/html; charset=utf8")
 	err := tpl.ExecuteTemplate(w, "index.html", nil)
 	if err != nil {
