@@ -1,116 +1,101 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: #083E9E;
+    font-family: 'Josefin sans';
     font-family: 'Josefin Sans', sans-serif;
     color: #4A5568;
 }
 
-img {
-    width: 190px;
-    margin: 50px auto;
+.side-bar-wrapper {
+    background: #062863;
 }
 
-.card {
-    background: #FFFFFF;
-    border-radius: 20px 20px 20px 0px;
-    padding: 42px 50px 36px 50px;
+.main {
+    padding-left: 40px;
+    padding-top: 70px;
 }
 
 h1 {
     font-weight: bold;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 30px;
+    line-height: 30px;
 }
 
 h2 {
-    width: 68px;
-    height: 9px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 12px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-p {
-    font-family: Josefin Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 12px;
-}
-
-.intro {
-    height: 15px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
-    margin-bottom: 24px;
+}
+
+label {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 10px;
 }
 
 .input {
-    width: 138px;
+    display: block;
+    width: 280px;
+    height: 32px;
+    border: none;
     background: #E8F0FE;
     border-radius: 3px;
-    float: right;
-    border: none;
-    padding: 5px;
 }
 
 /* 
  *  remove arrows for principal input
  *  not needed if input[type=text]
 */
+
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-div .label {
-    margin-bottom: 5%;
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.form-wrapper {
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 5px 5px 5px 0px;
+    padding: 20px 30px;
+}
+
+.results {
+    border-top: 1px solid #E5E5E5;
+    /* border-top-right-radius: ; */
 }
 
 .btn {
-    width: 60%;
-    height: 45px;
-    margin: 0 20%;
-    background: #0D60D8;
+    display: block;
+    width: 20%;
+    height: 32px;
+    /* margin: 0 20%; */
     font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
     color: #FFFFFF;
-    border-radius: 20px 20px 20px 0px;
+    background: #0D60D8;
+    border-radius: 5px 5px 5px 0px;
+    /* float: right; */
+    /* clear: left; */
 }
 
 .btn:hover {
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
 }
-
-.breakdown p {
-    margin-bottom: 20px;
-}
-
-span .figure {
-    float: right;
-}
-
-@media screen and (max-width: 480px) {
-    .card {
-        padding: 42px 30px 36px 30px;
-    }    
-}
-
