@@ -84,9 +84,9 @@ function getPrincipal() {
   const msToDays = 8.64e7
   var apprxMnth = 365 / 12
 
-  var expectedAmt = parseFloat(document.getElementById("expected").value);
+  var expectedAmt = parseFloat(document.getElementById("total").value);
   var now = new Date()
-  var date = document.getElementById("future-date").value
+  var date = document.getElementById("time").innerHTML
   var targetDate = new Date(date)
   var elapsedTime = targetDate.getTime() - now.getTime()
   var elapsedDays = elapsedTime / msToDays
@@ -100,6 +100,6 @@ function getPrincipal() {
 
   document.getElementById("iOutput-01").innerHTML =
   "You will need to save:" +"NGN" + dPrincipal + "daily.";
-  document.getElementById("iOutput-01").innerHTML =
+  document.getElementById("iOutput-02").innerHTML =
 	"You will need to save:" +"NGN" + mPrincipal + "monthly.";
 }
