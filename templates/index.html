@@ -17,6 +17,27 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interest Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+
   <body>
     <div class="container-fluid">
       <div class="row">
@@ -75,7 +96,9 @@
                     </select>
                   </div>
                 </div>
-                <button type="submit" class="btn" onclick="calculate()">CALCULATE</button>
+                <button type="submit" class="btn" onclick="calculate()">
+                  CALCULATE
+                </button>
               </form>
               <div class="results">
                 <h2>INTERESTS</h2>
@@ -96,6 +119,11 @@
                     Total Interest
                     <span class="figure"></span>
                   </p>
+                </div>
+                <div class="share">
+                  <p>Share Results via:</p>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-twitter"></i></a>
                 </div>
               </div>
             </div>
@@ -121,7 +149,9 @@
                 <label for="time">I want to have saved:</label>
                 <input class="input" type="date" name="time" id="time" />
               </div>
-              <button type="submit" class="btn" onclick="getPrincipal()">PLAN</button>
+              <button type="submit" class="btn" onclick="getPrincipal()">
+                PLAN
+              </button>
             </form>
             <!-- display Goal info -->
             <div class="goal-info">
@@ -131,6 +161,12 @@
               <p id="iOutput-02"></p>
             </div>
             <div class="goal-info"></div>
+          </div>
+
+          <div class="share">
+            <p>Share Results via:</p>
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
           </div>
         </div>
       </div>
