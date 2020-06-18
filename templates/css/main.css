@@ -64,6 +64,21 @@ p {
     padding: 5px;
 }
 
+/* 
+ *  remove arrows for principal input
+ *  not needed if input[type=text]
+*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 div .label {
     margin-bottom: 5%;
 }
@@ -92,3 +107,10 @@ div .label {
 span .figure {
     float: right;
 }
+
+@media screen and (max-width: 480px) {
+    .card {
+        padding: 42px 30px 36px 30px;
+    }    
+}
+
