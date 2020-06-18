@@ -12,6 +12,23 @@ body {
 
 .side-bar-wrapper {
     background: #062863;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    margin: 30px auto;
+}
+
+.peek-icon {
+    margin: 30px 20px;
+}
+
+.peek-text {
+    width: 120px;
+    padding: 2px 20px;
+    background: #FFFFFF;
+    border-radius: 10px 10px 10px 0px;
 }
 
 .main {
@@ -71,12 +88,23 @@ input[type=number] {
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 5px 5px 5px 0px;
+}
+
+form[name=peek] {
     padding: 20px 30px;
 }
 
 .results {
+    width: 100%;
     border-top: 1px solid #E5E5E5;
-    /* border-top-right-radius: ; */
+    /* border-radius: 14px 5px 0px; */
+    border-top-right-radius: 14px;
+    padding: 20px 30px;
+}
+
+.goal-form {
+    padding: 20px 30px;
+    border: 1px solid #E5E5E5;
 }
 
 .btn {
@@ -98,4 +126,12 @@ input[type=number] {
 .btn:hover {
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
+}
+
+#peek, #goal {
+    margin-bottom: 40px;
+}
+
+.label {
+    margin-bottom: 30px;
 }
