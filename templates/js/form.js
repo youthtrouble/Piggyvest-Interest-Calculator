@@ -1,6 +1,5 @@
 var principal = 0;
 var interestRate = 0;
-var timesCompounded = 0;
 var termOfLoan = 0;
 var amount = 0;
 
@@ -69,7 +68,6 @@ function compoundInterest() {
   var interestRate = 0.1;
   //   interestRate = interestRate / 365;
 
-  //   var timesCompounded = parseFloat(document.getElementById("timesCompounded").value);
   var a = interestRate / 365;
   var b = 1 + a;
   var c = Math.pow(b, prd);
@@ -79,4 +77,28 @@ function compoundInterest() {
     "Interest: NGN" + (amount - principal).toFixed(2);
   document.getElementById("siOutput-02").innerHTML =
     "Total plus interest: NGN" + amount;
+}
+
+function getPrincipal() {
+  event.preventDefault();
+  const msToDays = 8.64e7;
+  var apprxMnth = 365 / 12;
+  var amount = parseFloat(document.getElementById("total").value);
+  var now = new Date();
+  var date = document.getElementById("time").value;
+  var targetDate = new Date(date);
+  var elapsedTime = targetDate.getTime() - now.getTime();
+  var elapsedDays = elapsedTime / msToDays;
+
+  var interestRate = 0.1;
+  var a = interestRate / 365;
+  var b = 1 + a;
+  var c = Math.pow(b, elapsedDays);
+  var dPrincipal = (amount / (c + 1)).toFixed(2);
+  var mPrincipal = dPrincipal * apprxMnth;
+
+  document.getElementById("iOutput-01").innerHTML =
+    "You will need to save:" + "NGN" + dPrincipal + "daily.";
+  document.getElementById("iOutput-02").innerHTML =
+    "You will need to save:" + "NGN" + mPrincipal.toFixed(2) + "monthly.";
 }
