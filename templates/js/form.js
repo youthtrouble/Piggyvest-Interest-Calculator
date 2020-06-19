@@ -95,7 +95,12 @@ function getPrincipal() {
   var b = 1 + a;
   var c = Math.pow(b, elapsedDays);
   var dPrincipal = (amount / (c + 1)).toFixed(2);
-  var mPrincipal = dPrincipal * apprxMnth;
+  var mPrincipal;
+  if (elapsedDays > 30) {
+    mPrincipal = dPrincipal * apprxMnth;
+  } else {
+    mPrincipal = amount;
+  }
 
   document.getElementById("iOutput-01").innerHTML =
     "You will need to save:" + "NGN" + dPrincipal + "daily.";
